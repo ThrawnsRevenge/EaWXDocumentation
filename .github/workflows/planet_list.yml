@@ -1,0 +1,13 @@
+name: download
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  wget:
+    runs-on: ubuntu-latest
+    steps:
+    - name: wget
+      uses: wei/wget@v1
+      with:
+        args: -O planets.csv "http://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=1vAFaQ1Xu4ygGcgPlucXPBvmZTWpEnkDBKIThoIQoIhY&exportFormat=csv&gid=416135940"
