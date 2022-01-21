@@ -13,7 +13,7 @@ jobs:
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O planets.csv "http://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=1vAFaQ1Xu4ygGcgPlucXPBvmZTWpEnkDBKIThoIQoIhY&exportFormat=csv&gid=416135940"
+        args: -O EAWXDocumentation/planets.csv "http://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=1vAFaQ1Xu4ygGcgPlucXPBvmZTWpEnkDBKIThoIQoIhY&exportFormat=csv&gid=416135940"
     - name: Commit changes
       uses: EndBug/add-and-commit@v8
       with:
