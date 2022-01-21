@@ -2,12 +2,21 @@ name: download
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 * * * *'
 jobs:
-  wget:
+  run:
+    name: Download planets CSV
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
     - name: wget
       uses: wei/wget@v1
       with:
         args: -O planets.csv "http://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=1vAFaQ1Xu4ygGcgPlucXPBvmZTWpEnkDBKIThoIQoIhY&exportFormat=csv&gid=416135940"
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v8
+      with:
+        author_name: Github Action
+        message: 'Updated planets.csv'
+        add: '*.csv'
